@@ -5,8 +5,6 @@ FROM ubuntu:16.04
 
 MAINTAINER Roger Ye <shugaoye@yahoo.com>
 
-COPY utils/sources.list /etc/apt/sources.list
-
 # /bin/sh points to Dash by default, reconfigure to use bash until Android
 # build becomes POSIX compliant
 RUN echo "dash dash/sh boolean false" | debconf-set-selections && \
