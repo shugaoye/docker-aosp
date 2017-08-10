@@ -2,7 +2,7 @@
 # Minimum Docker image to build Android AOSP
 # Integrate JDK on top of ubuntu14.04
 #
-FROM shugaoye/aosp:ubuntu14.04
+FROM shugaoye/docker-aosp:ubuntu14.04
 
 MAINTAINER Roger Ye <shugaoye@yahoo.com>
 
