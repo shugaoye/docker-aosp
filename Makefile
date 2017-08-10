@@ -1,5 +1,5 @@
 DOCKER = docker
-IMAGE = shugaoye/aosp:ubuntu16.04
+IMAGE = shugaoye/docker-aosp:ubuntu16.04
 
 aosp: Dockerfile
 	$(DOCKER) build -t $(IMAGE) .
