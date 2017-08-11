@@ -1,8 +1,7 @@
 #
 # Minimum Docker image to build Android AOSP
-# Ubuntu 16.04 for Nougat build
 #
-FROM shugaoye/docker-aosp:ubuntu16.04-JDK8
+FROM shugaoye/docker-aosp:ubuntu14.04-JDK7
 
 MAINTAINER Roger Ye <shugaoye@yahoo.com>
 

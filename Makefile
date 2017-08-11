@@ -6,7 +6,7 @@
 # will be used.
 
 DOCKER = docker
-IMAGE = shugaoye/docker-aosp:ubuntu16.04-n
+IMAGE = shugaoye/docker-aosp:ubuntu14.04-l
 VOL1 ?= $(HOME)/vol1
 VOL2 ?= $(HOME)/.ccache
 USER_ID := $(shell id -u)
