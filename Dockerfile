@@ -17,5 +17,8 @@ ENV CCACHE_DIR /tmp/ccache
 # Work in the build directory, repo is expected to be init'd here
 WORKDIR /home/aosp
 
+COPY utils/bash.bashrc /root/bash.bashrc
+RUN chmod 755 /root /root/bash.bashrc
+
 COPY utils/docker_entrypoint.sh /root/docker_entrypoint.sh
 ENTRYPOINT ["/root/docker_entrypoint.sh"]
