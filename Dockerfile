@@ -1,16 +1,21 @@
 #
 # Minimum Docker image to build Android AOSP
-# Integrate JDK on top of ubuntu16.04
+# Ubuntu 16.04 for Nougat build
 #
-FROM shugaoye/docker-aosp:ubuntu16.04
+FROM shugaoye/docker-aosp:ubuntu16.04-JDK8
 
 MAINTAINER Roger Ye <shugaoye@yahoo.com>
 
-ADD https://storage-googleapis.proxy.ustclug.org/git-repo-downloads/repo /usr/local/bin/
-RUN chmod 755 /usr/local/bin/*
+# The persistent data will be in these two directories, everything else is
+# considered to be ephemeral
+VOLUME ["/tmp/ccache", "/home/aosp"]
 
-# Setup for Java
-RUN apt-get update && \
-    apt-get install -y openjdk-8-jdk && \
-    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+# Improve rebuild performance by enabling compiler cache
+ENV USE_CCACHE 1
+ENV CCACHE_DIR /tmp/ccache
 
+# Work in the build directory, repo is expected to be init'd here
+WORKDIR /home/aosp
+
+COPY utils/docker_entrypoint.sh /root/docker_entrypoint.sh
+ENTRYPOINT ["/root/docker_entrypoint.sh"]

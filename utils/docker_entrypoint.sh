@@ -29,14 +29,6 @@ echo "$msg - done"
 # Enable sudo for aosp
 echo "aosp ALL=(ALL) NOPASSWD:ALL" | tee -a /etc/sudoers
 
-# msg="docker_entrypoint: Copying .gitconfig and .ssh/config to new user home" && echo $msg
-# cp /root/.gitconfig /home/aosp/.gitconfig && \
-# chown aosp:aosp /home/aosp/.gitconfig && \
-# mkdir -p /home/aosp/.ssh && \
-# cp /root/.ssh/config /home/aosp/.ssh/config && \
-# chown aosp:aosp -R /home/aosp/.ssh &&
-# echo "$msg - done"
-
 msg="docker_entrypoint: Creating /tmp/ccache and /home/aosp directory" && echo $msg
 mkdir -p /tmp/ccache
 chown aosp:aosp /tmp/ccache

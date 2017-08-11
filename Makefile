@@ -6,15 +6,17 @@
 # will be used.
 
 DOCKER = docker
-IMAGE = shugaoye/docker-aosp:ubuntu16.04-JDK8
+IMAGE = shugaoye/docker-aosp:ubuntu16.04-n
 VOL1 ?= $(HOME)/vol1
 VOL2 ?= $(HOME)/.ccache
+USER_ID := $(shell id -u)
+GROUP_ID := $(shell id -g)
 
 aosp: Dockerfile
 	$(DOCKER) build -t $(IMAGE) .
 
 test:
-	$(DOCKER) run -v "$(VOL1):/root" -v "$(VOL2):/tmp/ccache" -i -t $(IMAGE) /bin/bash
+	$(DOCKER) run -v "$(VOL1):/home/aosp" -v "$(VOL2):/tmp/ccache" -it -e $(USER_ID) -e $(GROUP_ID) $(IMAGE) /bin/bash
 
 all: aosp
 
