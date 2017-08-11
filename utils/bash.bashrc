@@ -113,4 +113,4 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export PS1='\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\u@aosp-l:\w\$ '
+export PS1='\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\u@aosp-k:\w\$ '
