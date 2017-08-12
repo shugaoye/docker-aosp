@@ -16,7 +16,7 @@ aosp: Dockerfile
 	$(DOCKER) build -t $(IMAGE) .
 
 test:
-	$(DOCKER) run -v "$(VOL1):/home/aosp" -v "$(VOL2):/tmp/ccache" -it -e $(USER_ID) -e $(GROUP_ID) $(IMAGE) /bin/bash
+	$(DOCKER) run -v "$(VOL1):/home/aosp" -v "$(VOL2):/tmp/ccache" -it -e USER_ID=$(USER_ID) -e GROUP_ID=$(GROUP_ID) $(IMAGE) /bin/bash
 
 all: aosp
 

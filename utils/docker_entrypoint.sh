@@ -44,6 +44,5 @@ fi
 
 # Execute command as `aosp` user
 export HOME=/home/aosp
-ls -al /root/bash.bashrc
 echo "args=$args"
 exec sudo -E -u aosp $args --init-file /root/bash.bashrc
