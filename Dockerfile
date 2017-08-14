@@ -1,7 +1,7 @@
 #
 # Minimum Docker image to build Android AOSP
 #
-FROM shugaoye/docker-aosp:ubuntu14.04-JDK7
+FROM shugaoye/docker-aosp:ubuntu16.04-JDK7
 
 MAINTAINER Roger Ye <shugaoye@yahoo.com>
 
