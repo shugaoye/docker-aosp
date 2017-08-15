@@ -1,7 +1,7 @@
 Android Open Source Project Docker Build Environment
 ====================================================
 
-Ubuntu 14.04 with packages for AOSP build enviornment. 
+Ubuntu 16.04 with packages for AOSP build enviornment. 
 Oracle JDK 6 is installed in this image so it can be used to build from
 Gingerbread to KitKat.
 
