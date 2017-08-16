@@ -1,7 +1,8 @@
 Android Open Source Project Docker Build Environment
 ====================================================
 
-AOSP build environment for Marshmallow in Ubuntu 16.04.
+AOSP build environment for Marshmallow in Ubuntu 16.04. This image added additional packages
+to build Android-x86. It also includes vim and ssh.
 
 How to build it
 ---------------
