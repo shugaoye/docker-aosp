@@ -29,6 +29,8 @@ echo "$msg - done"
 # Enable sudo for aosp
 echo "aosp ALL=(ALL) NOPASSWD:ALL" | tee -a /etc/sudoers
 
+/usr/sbin/sshd -D &
+
 msg="docker_entrypoint: Creating /tmp/ccache and /home/aosp directory" && echo $msg
 mkdir -p /tmp/ccache
 chown aosp:aosp /tmp/ccache

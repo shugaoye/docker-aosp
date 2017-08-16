@@ -5,6 +5,20 @@ FROM shugaoye/docker-aosp:ubuntu16.04-JDK7
 
 MAINTAINER Roger Ye <shugaoye@yahoo.com>
 
+# install and configure SSH server
+RUN apt-get update
+RUN apt-get install -y openssh-server genisoimage net-tools
+RUN mkdir /var/run/sshd
+
+RUN echo 'root:root' |chpasswd
+
+RUN sed -ri 's/^PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config
+RUN sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config
+
+EXPOSE 22
+
+CMD    ["/usr/sbin/sshd", "-D"]
+
 # The persistent data will be in these two directories, everything else is
 # considered to be ephemeral
 VOLUME ["/tmp/ccache", "/home/aosp"]
