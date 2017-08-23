@@ -16,7 +16,5 @@ ${QEMU_PATH}/qemu-system-x86_64 \
 
 #	-tftp /home/aosp/TFTP/ \
 #	-bootp tftp://10.0.2.2/pxelinux.0 \
-#	-cdrom  ${ANDROID_IMAGE_PATH}/android-x86_64-6.0-r3.iso\
-#	-device virtio-gpu-pci,virgl -spice port=5900,disable-ticketing
 #	-device VGA -spice port=5900,disable-ticketing
 
