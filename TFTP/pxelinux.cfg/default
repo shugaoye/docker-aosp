@@ -1,0 +1,24 @@
+prompt 1
+default menu.c32
+timeout 100
+
+label 1. x86_64qemu
+menu x86_64qemu
+kernel x86_64qemu/kernel
+append ip=dhcp androidboot.selinux=permissive buildvariant=eng initrd=x86_64qemu/initrd.img androidboot.hardware=x86 DEBUG=2 SRC=/android-x86_64qemu ROOT=/dev/sda1 console=ttyS0 rw SDCARD=vendor DATA=sda2
+
+label 2. x86_64qemu
+menu x86_64qemu_ramdisk
+kernel x86_64qemu/kernel
+append ip=dhcp console=ttyS0 rw androidboot.selinux=permissive initrd=x86_64qemu/ramdisk.img androidboot.hardware=x86_64qemu
+
+label 3. Recovery - x86_64qemu
+menu x86_64qemu_ramdisk_recovery
+kernel x86_64qemu/kernel
+append ip=dhcp console=ttyS0 rw androidboot.selinux=permissive initrd=x86_64qemu/ramdisk-recovery.img androidboot.hardware=x86_64qemu
+
+label 4. NFS Installation - x86_64qemu
+menu x86_64qemu_install
+kernel x86_64qemu/kernel
+append ip=dhcp initrd=x86_64qemu/initrd.img root=/dev/nfs rw androidboot.hardware=x86_64qemu INSTALL=1 SRC=/x86_64qemu ROOT=10.0.2.2:/home/sgye/vol1/android-vbox/out/target/product VBOX_GUEST_ADDITIONS=1 SDCARD=vendor DATA=sda2
+
