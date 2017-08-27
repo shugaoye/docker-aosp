@@ -5,7 +5,7 @@ timeout 100
 label 1. x86_64qemu
 menu x86_64qemu
 kernel x86_64qemu/kernel
-append ip=dhcp androidboot.selinux=permissive buildvariant=eng initrd=x86_64qemu/initrd.img androidboot.hardware=x86 DEBUG=2 SRC=/android-x86_64qemu ROOT=/dev/sda1 console=ttyS0 rw SDCARD=vendor DATA=sda2
+append ip=dhcp androidboot.selinux=permissive buildvariant=eng initrd=x86_64qemu/initrd.img androidboot.hardware=x86 DEBUG=2 SRC=/android-x86_64qemu ROOT=/dev/vda console=ttyS0 rw RAMDISK=vdd SDCARD=vendor DATA=vdc
 
 label 2. x86_64qemu
 menu x86_64qemu_ramdisk

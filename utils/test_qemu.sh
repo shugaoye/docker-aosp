@@ -44,14 +44,15 @@ x86qemu () {
 		-device virtio-mouse-pci -device virtio-keyboard-pci \
 		-d guest_errors \
 		-kernel ${AOSP_OUT}/kernel \
-		-initrd ${AOSP_OUT}/ramdisk-recovery.img \
+		-initrd ${AOSP_OUT}/initrd.img \
 		-drive if=none,overlap-check=none,cache=unsafe,index=0,id=system,file=${AOSP_OUT}/system.img${IMG_TYPE} \
 		-device virtio-blk-pci,drive=system,modern-pio-notify \
 		-drive if=none,overlap-check=none,cache=unsafe,index=1,id=cache,file=${AOSP_OUT}/cache.img${IMG_TYPE},l2-cache-size=1048576 \
 		-device virtio-blk-pci,drive=cache,modern-pio-notify \
 		-drive if=none,overlap-check=none,cache=unsafe,index=2,id=userdata,file=${AOSP_OUT}/userdata.img${IMG_TYPE},l2-cache-size=1048576 \
 		-device virtio-blk-pci,drive=userdata,modern-pio-notify \
-		-append 'ip=dhcp console=ttyS0 rw androidboot.selinux=permissive androidboot.hardware=x86_64qemu' \
+		-append 'ip=dhcp console=ttyS0 rw androidboot.selinux=permissive androidboot.hardware=x86_64qemu ROOT=/dev/vda RAMDISK=vdd DATA=vdc' \
+		-drive index=4,if=virtio,id=ramdisk,file=ramdisk.img,format=raw,readonly \
 		-device virtio-gpu-pci,virgl -spice port=5900,disable-ticketing
 }
 
@@ -68,6 +69,13 @@ x86qemu_pxe () {
 		-device virtio-net-pci,netdev=mynet \
 		-device virtio-mouse-pci -device virtio-keyboard-pci \
 		-d guest_errors \
+		-drive if=none,overlap-check=none,cache=unsafe,index=0,id=system,file=${AOSP_OUT}/system.img${IMG_TYPE} \
+		-device virtio-blk-pci,drive=system,modern-pio-notify \
+		-drive if=none,overlap-check=none,cache=unsafe,index=1,id=cache,file=${AOSP_OUT}/cache.img${IMG_TYPE},l2-cache-size=1048576 \
+		-device virtio-blk-pci,drive=cache,modern-pio-notify \
+		-drive if=none,overlap-check=none,cache=unsafe,index=2,id=userdata,file=${AOSP_OUT}/userdata.img${IMG_TYPE},l2-cache-size=1048576 \
+		-device virtio-blk-pci,drive=userdata,modern-pio-notify \
+		-drive index=4,if=virtio,id=ramdisk,file=ramdisk.img,format=raw,readonly \
 		-device virtio-gpu-pci,virgl -spice port=5900,disable-ticketing
 	
 }
@@ -96,6 +104,13 @@ x86qemu_iso () {
 		-device virtio-mouse-pci -device virtio-keyboard-pci \
 		-d guest_errors \
 		-cdrom  ${ANDROID_X86_IMAGE} \
+		-drive if=none,overlap-check=none,cache=unsafe,index=0,id=system,file=${AOSP_OUT}/system.img${IMG_TYPE} \
+		-device virtio-blk-pci,drive=system,modern-pio-notify \
+		-drive if=none,overlap-check=none,cache=unsafe,index=1,id=cache,file=${AOSP_OUT}/cache.img${IMG_TYPE},l2-cache-size=1048576 \
+		-device virtio-blk-pci,drive=cache,modern-pio-notify \
+		-drive if=none,overlap-check=none,cache=unsafe,index=2,id=userdata,file=${AOSP_OUT}/userdata.img${IMG_TYPE},l2-cache-size=1048576 \
+		-device virtio-blk-pci,drive=userdata,modern-pio-notify \
+		-drive index=4,if=virtio,id=ramdisk,file=ramdisk.img,format=raw,readonly \
 		-device virtio-gpu-pci,virgl -spice port=5900,disable-ticketing
 }
 
