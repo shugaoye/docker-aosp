@@ -52,7 +52,7 @@ x86qemu () {
 		-drive if=none,overlap-check=none,cache=unsafe,index=2,id=userdata,file=${AOSP_OUT}/userdata.img${IMG_TYPE},l2-cache-size=1048576 \
 		-device virtio-blk-pci,drive=userdata,modern-pio-notify \
 		-append 'ip=dhcp console=ttyS0 rw androidboot.selinux=permissive androidboot.hardware=x86_64qemu ROOT=/dev/vda RAMDISK=vdd DATA=vdc' \
-		-drive index=4,if=virtio,id=ramdisk,file=ramdisk.img,format=raw,readonly \
+		-drive index=4,if=virtio,id=ramdisk,file=${AOSP_OUT}/ramdisk.img,format=raw,readonly \
 		-device virtio-gpu-pci,virgl -spice port=5900,disable-ticketing
 }
 
@@ -75,7 +75,7 @@ x86qemu_pxe () {
 		-device virtio-blk-pci,drive=cache,modern-pio-notify \
 		-drive if=none,overlap-check=none,cache=unsafe,index=2,id=userdata,file=${AOSP_OUT}/userdata.img${IMG_TYPE},l2-cache-size=1048576 \
 		-device virtio-blk-pci,drive=userdata,modern-pio-notify \
-		-drive index=4,if=virtio,id=ramdisk,file=ramdisk.img,format=raw,readonly \
+		-drive index=4,if=virtio,id=ramdisk,file=${AOSP_OUT}/ramdisk.img,format=raw,readonly \
 		-device virtio-gpu-pci,virgl -spice port=5900,disable-ticketing
 	
 }
@@ -110,7 +110,7 @@ x86qemu_iso () {
 		-device virtio-blk-pci,drive=cache,modern-pio-notify \
 		-drive if=none,overlap-check=none,cache=unsafe,index=2,id=userdata,file=${AOSP_OUT}/userdata.img${IMG_TYPE},l2-cache-size=1048576 \
 		-device virtio-blk-pci,drive=userdata,modern-pio-notify \
-		-drive index=4,if=virtio,id=ramdisk,file=ramdisk.img,format=raw,readonly \
+		-drive index=4,if=virtio,id=ramdisk,file=${AOSP_OUT}/ramdisk.img,format=raw,readonly \
 		-device virtio-gpu-pci,virgl -spice port=5900,disable-ticketing
 }
 
