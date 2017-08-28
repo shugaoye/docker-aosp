@@ -7,8 +7,10 @@ MAINTAINER Roger Ye <shugaoye@yahoo.com>
 
 # install and configure SSH server
 RUN apt-get update
-RUN apt-get install -y openssh-server genisoimage net-tools gettext vim-common vim-tiny
+RUN apt-get install -y openssh-server genisoimage net-tools gettext vim-common vim-tiny python-pip
 RUN mkdir /var/run/sshd
+RUN export LC_ALL=C
+RUN sudo pip install Mako
 
 RUN echo 'root:root' |chpasswd
 
