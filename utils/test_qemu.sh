@@ -39,7 +39,7 @@ x86qemu () {
 		-m 1024 \
 		-serial stdio \
 		-monitor telnet:127.0.0.1:1234,server,nowait \
-		-netdev user,tftp=/home/aosp/TFTP/,bootfile=tftp://10.0.2.2/pxelinux.0,id=mynet,hostfwd=tcp::5400-:5555 \
+		-netdev user,tftp=/home/aosp/TFTP/,bootfile=tftp://10.0.2.2/pxelinux.0,id=mynet,hostfwd=tcp::5555-:5555 \
 		-device virtio-net-pci,netdev=mynet \
 		-device virtio-mouse-pci -device virtio-keyboard-pci \
 		-d guest_errors \
@@ -65,7 +65,7 @@ x86qemu_pxe () {
 		-boot n \
 		-serial stdio \
 		-monitor telnet:127.0.0.1:1234,server,nowait \
-		-netdev user,tftp=/home/aosp/TFTP/,bootfile=tftp://10.0.2.2/pxelinux.0,id=mynet,hostfwd=tcp::5400-:5555 \
+		-netdev user,tftp=/home/aosp/TFTP/,bootfile=tftp://10.0.2.2/pxelinux.0,id=mynet,hostfwd=tcp::5555-:5555 \
 		-device virtio-net-pci,netdev=mynet \
 		-device virtio-mouse-pci -device virtio-keyboard-pci \
 		-d guest_errors \
@@ -76,6 +76,7 @@ x86qemu_pxe () {
 		-drive if=none,overlap-check=none,cache=unsafe,index=2,id=userdata,file=${AOSP_OUT}/userdata.img${IMG_TYPE},l2-cache-size=1048576 \
 		-device virtio-blk-pci,drive=userdata,modern-pio-notify \
 		-drive index=4,if=virtio,id=ramdisk,file=${AOSP_OUT}/ramdisk.img,format=raw,readonly \
+		-vga std \
 		-device virtio-gpu-pci,virgl -spice port=5900,disable-ticketing
 	
 }
@@ -99,7 +100,7 @@ x86qemu_iso () {
 		-m 1024 \
 		-serial stdio \
 		-monitor telnet:127.0.0.1:1234,server,nowait \
-		-netdev user,tftp=/home/aosp/TFTP/,bootfile=tftp://10.0.2.2/pxelinux.0,id=mynet,hostfwd=tcp::5400-:5555 \
+		-netdev user,tftp=/home/aosp/TFTP/,bootfile=tftp://10.0.2.2/pxelinux.0,id=mynet,hostfwd=tcp::5555-:5555 \
 		-device virtio-net-pci,netdev=mynet \
 		-device virtio-mouse-pci -device virtio-keyboard-pci \
 		-d guest_errors \

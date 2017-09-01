@@ -2,12 +2,12 @@ prompt 1
 default menu.c32
 timeout 100
 
-label 1. x86_64qemu
+label 1. x86_64qemu (initrd)
 menu x86_64qemu
 kernel x86_64qemu/kernel
-append ip=dhcp androidboot.selinux=permissive buildvariant=eng initrd=x86_64qemu/initrd.img androidboot.hardware=x86 DEBUG=2 SRC=/android-x86_64qemu ROOT=/dev/vda console=ttyS0 rw RAMDISK=vdd SDCARD=vendor DATA=vdc
+append ip=dhcp androidboot.selinux=permissive buildvariant=eng initrd=x86_64qemu/initrd.img androidboot.hardware=x86_64qemu DEBUG=2 SRC=/android-x86_64qemu ROOT=/dev/vda console=ttyS0 rw RAMDISK=vdd SDCARD=vendor DATA=vdc
 
-label 2. x86_64qemu
+label 2. x86_64qemu (ramdisk)
 menu x86_64qemu_ramdisk
 kernel x86_64qemu/kernel
 append ip=dhcp console=ttyS0 rw androidboot.selinux=permissive initrd=x86_64qemu/ramdisk.img androidboot.hardware=x86_64qemu
