@@ -16,7 +16,8 @@ ubuntu16.04       - the base image
 
 You can customize the build environment according to your own need.
 
-If you are interested in Android System Programmign, you can read
+If you are interested in Android System Programming, you can read
 my book below:
 
-[Android System Programming]: https://www.amazon.com/Android-System-Programming-Roger-Ye-ebook/dp/B072M68RN9/ref=asap_bc?ie=UTF8
+[Android System Programming]: (https://www.amazon.com/Android-System-Programming-Roger-Ye-ebook/dp/B072M68RN9/ref=asap_bc?ie=UTF8 "Android System Programming")
+[Embedded Programming with Android]: (https://www.amazon.com/Embedded-Programming-Android-Bringing-Scratch/dp/0134030001/ref=asap_bc?ie=UTF8 "Embedded Programming with Android")
